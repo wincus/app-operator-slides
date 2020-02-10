@@ -1,23 +1,13 @@
 # deployment example
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-  labels:
-    app: nginx
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.7.9
-        ports:
-        - containerPort: 80
+Deployment Object (&) <- user
+  \_ ReplicaSet 0 (*)
+  \_ ReplicaSet 1 (*)
+  \_ ReplicaSet 2 (*)
+     \_ Pod0      (!)
+     \_ Pod1      (!)
+     \_ Pod3      (!)
+
+(&) Managed by the User 
+(*) Managed by the Deployment Controller
+(!) Managed by tge ReplicaSet Controller
