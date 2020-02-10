@@ -1,18 +1,9 @@
-# app example
-
-apiVersion: apps.invisionapp.k8s/v1beta1
-kind: App
-metadata:
-  name: assets-api
-  labels:
-    app: assets-api
-    environment: production
-    owner: edge
-    tier: multi-tenant
-spec:
-  resources:
-  - name: assets-api-deployment
-    kind: Deployment
-    repo: github: https://github.com/InVisionApp/assets-api
-  - name: assets-api-newrelic
-    kind: newrelic
+slides:
+  - conclusions: |
+    1. IaD makes config management very easy as manipulating data
+    is much easier than manipulating code
+    2. Platform is _democratized_ as teams can work on their own controllers
+    3. This is the design that kubernetes relies on ... so is probed to work
+    4. Interfaces and ownership are well defined and not ambiguous
+    5. We get depedencies for free
+    6. Full visibility on kubernetes
