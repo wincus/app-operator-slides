@@ -7,3 +7,7 @@ slide:
     describes the desired state with plain no-code data. Then 
     a control loop ( or controller ) makes sure the desired state
     is reconciled.
+  examples:
+  - deployment controller
+  - ingress controller
+  - scheduled job controller
