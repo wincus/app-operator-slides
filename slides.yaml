@@ -1,3 +1,7 @@
 # git@github.com:wincus/app-operator-slides.git
 slide:
   title: Secret project status
+  status: |
+    It was determined that is not possible to solve problems
+    with secrets without doing some foundational changes
+    
