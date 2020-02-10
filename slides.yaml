@@ -10,3 +10,9 @@ slide:
   in other words: |
     Our hability to make platform changes is slower than
     what the business requires.
+  real life examples:
+  - aws resource provisioning
+  - mysql secret rotation
+  - reaper
+  - new environment creation ( testing/staging/MT )
+  - accounting 
