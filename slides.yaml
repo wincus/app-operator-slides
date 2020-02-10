@@ -1,14 +1,7 @@
 # ingress controller example
 
-apiVersion: extensions/v1beta1
-kind: Ingress
-  name: freehand-thumbnailer-ingress-private
-spec:
-  rules:
-  - host: freehand-thumbnailer.multi.use1-prev-1.internal.invision.works
-    http:
-      paths:
-      - backend:
-          serviceName: freehand-thumbnailer-svc
-          servicePort: 80
-        path: /
+Ingress Object        (&) <- user
+  \_Nginx Config      (*)
+
+(&) Managed by the User
+(*) Managed by the Ingress Controller
