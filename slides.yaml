@@ -1,13 +1,23 @@
-# git@github.com:wincus/app-operator-slides.git
-slide:
-  title: What is Infrastructure as Data?
-  answer: |
-    While Infrastructure as code (IaC) describes the desired
-    state in a language program syntax, Infrastructure as Data (IaD)
-    describes the desired state with plain no-code data. Then 
-    a control loop ( or controller ) makes sure the desired state
-    is reconciled.
-  examples:
-  - deployment controller
-  - ingress controller
-  - scheduled job controller
+# deployment example
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
