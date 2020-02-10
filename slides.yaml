@@ -1,23 +1,18 @@
 # app example
-apiVersion: apps.invisionapp.k8s/v1beta1
-kind: App
-metadata:
-  name: assets-api
-  labels:
-    app: assets-api
-    environment: production
-    owner: edge
-    tier: multi-tenant
-spec:
-  resources:
-  - name: assets-api-deployment
-    kind: Deployment
-    github: https://github.com/InVisionApp/assets-api 
-  - name: assets-api-hpa
-    kind: hpa
-    minReplicas: 10
-    maxReplicas: 50
-    targetCPUUtilizationPercentage: 100
-  - name: assets-api-pdb
-    kind: pdb
-    maxUnavailable: 33%
+
+App Object            (&) <- user
+  \_ HPA        0     (+)
+  \_ PDB        0     (+)
+  \_Deployment Object (+)
+    \_ ReplicaSet 0   (*)
+    \_ ReplicaSet 1   (*)
+    \_ ReplicaSet 2   (*)
+        \_ Pod0       (!)
+        \_ Pod1       (!)
+        \_ Pod3       (!)
+
+ 
+(&) Managed by the User 
+(+) Managed by the App Controller
+(*) Managed by the Deployment Controller
+(!) Managed by tge ReplicaSet Controller
