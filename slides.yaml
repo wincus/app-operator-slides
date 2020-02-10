@@ -1,18 +1,3 @@
 # git@github.com:wincus/app-operator-slides.git
 slide:
-  title: Secret project status
-  status: |
-    It was determined that is not possible to solve problems
-    with secrets without doing some foundational changes
-  why: |
-    Our platform is not flexible enough to allow us make 
-    changes in a timely fashion.
-  in other words: |
-    Our hability to make platform changes is slower than
-    what the business requires.
-  real life examples:
-  - aws resource provisioning
-  - mysql secret rotation
-  - reaper
-  - new environment creation ( testing/staging/MT )
-  - accounting 
+  title: What is Infrastructure as Data?
