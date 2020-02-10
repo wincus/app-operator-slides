@@ -1,5 +1,6 @@
 # Abstractions
  
- - ReplicaSet Controller
-   \_ Pod Controller
-       \_ Container
+  - Deployment Controller 
+    \_ ReplicaSet Controller
+       \_ Pod Controller
+          \_ Container
