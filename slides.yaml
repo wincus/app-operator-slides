@@ -1,9 +1,14 @@
-# cronjob example
+# ingress controller example
 
-CronJob Object (&) <- user
-  \_ Job       (*)
-     \_Pod1    (!)
-
-(&) Managed by the User
-(*) Managed by the CronJob Controller
-(!) Managed by the Job Controller
+apiVersion: extensions/v1beta1
+kind: Ingress
+  name: freehand-thumbnailer-ingress-private
+spec:
+  rules:
+  - host: freehand-thumbnailer.multi.use1-prev-1.internal.invision.works
+    http:
+      paths:
+      - backend:
+          serviceName: freehand-thumbnailer-svc
+          servicePort: 80
+        path: /
