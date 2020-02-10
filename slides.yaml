@@ -1,21 +1,17 @@
-App Object            (&) <- user
-  \_Deployment Object (+)
-    \_ ReplicaSet 0   (*)
-    \_ ReplicaSet 1   (*)
-    \_ ReplicaSet 2   (*)
-        \_ Pod0       (!)
-        \_ Pod1       (!)
-        \_ Pod3       (!)
-  \_Job Object        (-)  
-      \_ Pod          (-)
-  \_MySqlCRD          (+)
-    \_ConfigMap       (=)
-    \_VaultSecret     (=)
-      \_Secret        (.)
-
-(&) Managed by the User
-(+) Managed by the App Controller
-(*) Managed by the Deployment Controller
-(!) Managed by the ReplicaSet Controller
-(=) Managed by the NewRelicController
-(.) Managed by the SecretController
+# app example
+apiVersion: apps.invisionapp.k8s/v1beta1
+kind: App
+metadata:
+  name: assets-api
+  labels:
+    app: assets-api
+    environment: production
+    owner: edge
+    tier: multi-tenant
+spec:
+  resources:
+  - name: assets-api-deployment
+    kind: Deployment
+    repo: github: https://github.com/InVisionApp/assets-api
+  - name: assets-api-reaper
+    kind: Reaper
