@@ -4,4 +4,7 @@ slide:
   status: |
     It was determined that is not possible to solve problems
     with secrets without doing some foundational changes
+  why: |
+    Our platform is not flexible enough to allow us make 
+    changes in a timely fashion.
     
