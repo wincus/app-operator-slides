@@ -1,7 +1,23 @@
-# Abstractions
-
-  - App Controller!
-    \_ Deployment Controller 
-       \_ ReplicaSet Controller
-          \_ Pod Controller
-             \_ Container
+# app example
+apiVersion: apps.invisionapp.k8s/v1beta1
+kind: App
+metadata:
+  name: assets-api
+  labels:
+    app: assets-api
+    environment: production
+    owner: edge
+    tier: multi-tenant
+spec:
+  resources:
+  - name: assets-api-deployment
+    kind: Deployment
+    github: https://github.com/InVisionApp/assets-api 
+  - name: assets-api-hpa
+    kind: hpa
+    minReplicas: 10
+    maxReplicas: 50
+    targetCPUUtilizationPercentage: 100
+  - name: assets-api-pdb
+    kind: pdb
+    maxUnavailable: 33%
