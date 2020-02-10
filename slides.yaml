@@ -1,3 +1,9 @@
 # git@github.com:wincus/app-operator-slides.git
 slide:
   title: What is Infrastructure as Data?
+  answer: |
+    While Infrastructure as code (IaC) describes the desired
+    state in a language program syntax, Infrastructure as Data (IaD)
+    describes the desired state with plain no-code data. Then 
+    a control loop ( or controller ) makes sure the desired state
+    is reconciled.
